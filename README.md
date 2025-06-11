@@ -1,61 +1,189 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DISTRIBUSI-PRODUK
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Streamlining Distribution, Empowering Growth and Innovation
 
-## About Laravel
+![Last Commit](https://img.shields.io/github/last-commit/username/repo?color=blue&style=flat-square) ![Code Size](https://img.shields.io/github/languages/code-size/username/repo?color=green&style=flat-square) ![Languages](https://img.shields.io/github/languages/count/username/repo?style=flat-square)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Built with the tools and technologies:
+![JSON](https://img.shields.io/badge/-JSON-000000?style=flat-square&logo=json&logoColor=white) 
+![Markdown](https://img.shields.io/badge/-Markdown-000000?style=flat-square&logo=markdown&logoColor=white) 
+![PHP](https://img.shields.io/badge/-PHP-777BB4?style=flat-square&logo=php&logoColor=white) 
+![Laravel](https://img.shields.io/badge/-Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white) 
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) 
+![jQuery](https://img.shields.io/badge/-jQuery-0769AD?style=flat-square&logo=jquery&logoColor=white) 
+![NPM](https://img.shields.io/badge/-NPM-CB3837?style=flat-square&logo=npm&logoColor=white) 
+![Composer](https://img.shields.io/badge/-Composer-885630?style=flat-square&logo=composer&logoColor=white) 
+![Vite](https://img.shields.io/badge/-Vite-646CFF?style=flat-square&logo=vite&logoColor=white) 
+![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white) 
+![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Table of Contents
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+*   [Overview](#overview)
+*   [Getting Started](#getting-started)
+    *   [Prerequisites](#prerequisites)
+    *   [Installation](#installation)
+    *   [Usage](#usage)
+*   [Features](#features)
+*   [Database Structure](#database-structure)
+*   [AJAX Endpoints](#ajax-endpoints)
+*   [Testing](#testing)
 
-## Learning Laravel
+## Overview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Distribusi Produk is a comprehensive web application designed to streamline product distribution management through a modern, scalable architecture. It combines a sleek frontend built with Vite, Tailwind CSS, jQuery, and Axios with a robust Laravel backend that handles complex data transactions and distribution workflows.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Why `distribusi-produk`?
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+This project aims to simplify and optimize product distribution processes. The core features include:
 
-## Laravel Sponsors
+*   🚀 **Modern Frontend**: Utilizes Vite, Tailwind CSS, and Axios for fast, responsive interfaces and efficient asset management.
+*   📦 **Laravel CLI Integration**: Facilitates seamless execution of backend commands, migrations, and maintenance tasks.
+*   📊 **Dynamic Data Handling**: Implements AJAX and DataTables for real-time, server-side data interactions and advanced filtering capabilities.
+*   🔒 **Secure & Scalable**: Configurable session, queue, and storage options support growth and security.
+*   ✅ **Testing & Seeding**: Includes seeders and factories for reliable testing and initial setup.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Getting Started
 
-### Premium Partners
+### Prerequisites
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+This project requires the following dependencies:
 
-## Contributing
+*   **Programming Language**: PHP (>= 8.1)
+*   **Framework**: Laravel (>= 10.x)
+*   **Package Managers**: Npm (Node.js >= 16.x) and Composer
+*   **Database**: MySQL (or compatible)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Installation
 
-## Code of Conduct
+To build `distribusi-produk` from the source and install dependencies:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1.  **Clone the repository**:
 
-## Security Vulnerabilities
+    ```bash
+    git clone https://github.com/username/distribusi-produk.git
+    ```
+    *Replace `username/distribusi-produk.git` with your actual repository URL.*
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2.  **Navigate to the project directory**:
 
-## License
+    ```bash
+    cd distribusi-produk
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3.  **Install the dependencies**:
+
+    **Using npm (for frontend assets)**:
+
+    ```bash
+    npm install
+    ```
+
+    **Using Composer (for backend dependencies)**:
+
+    ```bash
+    composer install
+    ```
+
+4.  **Configure Environment**:
+    *   Copy the `.env.example` file to `.env`:
+        ```bash
+        cp .env.example .env
+        ```
+    *   Generate an application key:
+        ```bash
+        php artisan key:generate
+        ```
+    *   Configure your database credentials in the `.env` file.
+
+5.  **Run Migrations and Seeders**:
+
+    ```bash
+    php artisan migrate:fresh --seed
+    ```
+    This command will run all migrations and seed your database with initial data (admin, barista, products, and sample distributions).
+
+### Usage
+
+To run the project:
+
+1.  **Start the Vite development server (for frontend hot-reloading)**:
+
+    ```bash
+    npm run dev
+    ```
+
+2.  **Start the Laravel development server**:
+
+    ```bash
+    php artisan serve
+    ```
+
+    The application will typically be accessible at `http://127.0.0.1:8000` (or `localhost:8000`).
+
+## Features
+
+This application provides the following key features:
+
+1.  **Halaman Index (distributions.index)**
+    *   **Tujuan**: Melihat daftar distribusi produk yang sudah pernah dilakukan.
+    *   **Fitur**: Menggunakan AJAX dan DataTables server-side dengan kolom Tanggal Distribusi, Barista, Total Quantity, Estimasi Penjualan, Notes, dan Tombol Aksi (Detail, Hapus).
+    *   **Detail Modal**: Modal detail muncul saat klik tombol detail untuk melihat produk yang didistribusikan.
+    *   **Filter Kustom**: Dilengkapi dengan filter rentang tanggal dan rentang estimasi penjualan untuk pencarian data yang lebih spesifik.
+
+2.  **Halaman Form Tambah Distribusi (distributions.create)**
+    *   **Tujuan**: Menambah transaksi distribusi baru.
+    *   **Flow User**: Pilih barista, tambahkan produk secara dinamis ke tabel sementara dengan input kuantitas. Total kuantitas dan estimasi penjualan diperbarui secara real-time.
+    *   **Penyimpanan Transaksional**: Menyimpan header distribusi dan mengaitkan semua detail produk (sementara) ke distribusi tersebut dalam satu transaksi.
+
+## Database Structure
+
+### `users`
+*   `id`
+*   `name`
+*   `email`
+*   `password`
+*   `active` (boolean)
+
+### `products`
+*   `id`
+*   `name`
+*   `price`
+*   `active` (boolean)
+
+### `distributions`
+*   `id`
+*   `barista_id` (FK users)
+*   `total_qty`
+*   `estimated_result`
+*   `notes`
+*   `created_by` (admin id, FK users)
+*   `created_at`
+*   `updated_at`
+
+### `distribution_details`
+*   `id`
+*   `distribution_id` (FK distributions, nullable saat masih sementara)
+*   `product_id` (FK products)
+*   `qty`
+*   `price`
+*   `total`
+*   `created_by` (admin id, FK users)
+*   `created_at`
+*   `updated_at`
+
+## AJAX Endpoints
+
+*   `GET /distributions` (DataTable list)
+*   `POST /distributions` (simpan distribusi)
+*   `GET /distribution-products` (DataTable produk sementara)
+*   `POST /distribution-products` (Tambah produk sementara)
+*   `DELETE /distribution-products/{id}` (hapus produk dari list sementara)
+
+## Testing
+
+`distribusi-produk` uses PHPUnit for backend testing. Run the test suite with:
+
+```bash
+vendor/bin/phpunit
+```
