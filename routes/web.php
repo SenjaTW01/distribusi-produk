@@ -5,13 +5,14 @@ use App\Http\Controllers\DistributionController;
 use App\Http\Controllers\DistributionProductController;
 use App\Http\Controllers\AuthController;
 
+// Redirect root to login
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 // Auth Routes
 Route::middleware('guest')->group(function () {
-    Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 });
 

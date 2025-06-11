@@ -32,7 +32,7 @@ class DistributionController extends Controller
                 return $distribution->total_qty;
             })
             ->addColumn('estimated_result', function($distribution) {
-                return 'Rp ' . number_format($distribution->estimated_result, 0, ',', '.');
+                return $distribution->estimated_result;
             })
             ->addColumn('notes', function($distribution) {
                 return $distribution->notes;
@@ -99,6 +99,25 @@ class DistributionController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
             return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+    }
+
+    public function destroy(Distribution $distribution)
+    {
+        try {
+            DB::beginTransaction();
+            
+            // Hapus semua detail distribusi terkait
+            $distribution->details()->delete();
+            
+            // Hapus distribusi itu sendiri
+            $distribution->delete();
+
+            DB::commit();
+            return response()->json(['success' => true, 'message' => 'Distribusi berhasil dihapus.']);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['success' => false, 'message' => 'Terjadi kesalahan saat menghapus distribusi: ' . $e->getMessage()], 500);
         }
     }
 
