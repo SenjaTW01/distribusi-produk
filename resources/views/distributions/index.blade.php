@@ -21,6 +21,48 @@
 
         <!-- DataTable Container dengan Styling yang Lebih Modern -->
         <div class="p-6">
+            <!-- Custom Filters Section -->
+            <div class="bg-white rounded-lg p-6 mb-6 shadow-sm border border-gray-100">
+                <h6 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                    Filter Distribusi
+                </h6>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div>
+                        <label for="start_date" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Mulai</label>
+                        <input type="date" id="start_date" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3 text-gray-700">
+                    </div>
+                    <div>
+                        <label for="end_date" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Akhir</label>
+                        <input type="date" id="end_date" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3 text-gray-700">
+                    </div>
+                    <div>
+                        <label for="min_sales" class="block text-sm font-medium text-gray-700 mb-1">Min Penjualan (Rp)</label>
+                        <input type="number" id="min_sales" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3 text-gray-700" placeholder="Misal: 10000">
+                    </div>
+                    <div>
+                        <label for="max_sales" class="block text-sm font-medium text-gray-700 mb-1">Max Penjualan (Rp)</label>
+                        <input type="number" id="max_sales" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3 text-gray-700" placeholder="Misal: 500000">
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end space-x-3">
+                    <button id="apply-filter" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow-md transition duration-200 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                        </svg>
+                        Terapkan Filter
+                    </button>
+                    <button id="clear-filter" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-md shadow-md transition duration-200 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Bersihkan Filter
+                    </button>
+                </div>
+            </div>
+
             <!-- Search & Length Control Styling -->
             <style>
                 .dataTables_wrapper .dataTables_length select {
@@ -45,20 +87,30 @@
                 #distributions-table tbody tr:hover {
                     @apply bg-blue-50;
                 }
+                /* Styling untuk label pencarian global */
+                .dataTables_wrapper .dataTables_filter label {
+                    @apply text-gray-700 font-medium;
+                }
+                /* Styling untuk label show entries */
+                .dataTables_wrapper .dataTables_length label {
+                    @apply text-gray-700 font-medium;
+                }
             </style>
             
-            <table class="min-w-full divide-y divide-gray-200 shadow-sm" id="distributions-table">
-                <thead>
-                    <tr>
-                        <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider rounded-tl-lg">Tanggal Distribusi</th>
-                        <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Barista</th>
-                        <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Total Quantity</th>
-                        <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Estimasi Penjualan</th>
-                        <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Notes</th>
-                        <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider rounded-tr-lg">Aksi</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200" id="distributions-table">
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider rounded-tl-lg">Tanggal Distribusi</th>
+                            <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Barista</th>
+                            <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Total Quantity</th>
+                            <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Estimasi Penjualan</th>
+                            <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Notes</th>
+                            <th class="px-6 py-3.5 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider rounded-tr-lg">Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -102,16 +154,22 @@ $(function() {
     var table = $('#distributions-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route("distributions.data") }}',
+        ajax: {
+            url: '{{ route("distributions.data") }}',
+            data: function (d) {
+                d.start_date = $('#start_date').val();
+                d.end_date = $('#end_date').val();
+                d.min_sales = $('#min_sales').val();
+                d.max_sales = $('#max_sales').val();
+            }
+        },
         columns: [
             {data: 'date', name: 'date'},
             {data: 'barista_name', name: 'barista_name'},
             {data: 'total_qty', name: 'total_qty'},
             {data: 'estimated_result', name: 'estimated_result',
              render: function(data) {
-                 // Membersihkan string dari "Rp " dan titik ribuan sebelum parsing
-                 var cleanedData = data.replace('Rp ', '').replace(/\./g, '');
-                 var value = parseFloat(cleanedData);
+                 var value = parseFloat(data);
                  
                  var formatter = new Intl.NumberFormat('id-ID', {
                     style: 'currency',
@@ -150,6 +208,20 @@ $(function() {
             $('.dataTables_wrapper').addClass('rounded-lg overflow-hidden');
             $('.dataTables_paginate').addClass('py-3');
         }
+    });
+
+    // Apply Filter Button Click
+    $('#apply-filter').on('click', function() {
+        table.ajax.reload();
+    });
+
+    // Clear Filter Button Click
+    $('#clear-filter').on('click', function() {
+        $('#start_date').val('');
+        $('#end_date').val('');
+        $('#min_sales').val('');
+        $('#max_sales').val('');
+        table.ajax.reload();
     });
 
     // Handle Detail Button Click

@@ -17,11 +17,27 @@ class DistributionController extends Controller
         return view('distributions.index');
     }
 
-    public function getData()
+    public function getData(Request $request)
     {
-        $distributions = Distribution::with(['barista', 'details'])->get();
+        $distributions = Distribution::with(['barista', 'details']);
+
+        // Apply date filters
+        if ($request->filled('start_date')) {
+            $distributions->whereDate('created_at', '>=', $request->start_date);
+        }
+        if ($request->filled('end_date')) {
+            $distributions->whereDate('created_at', '<=', $request->end_date);
+        }
+
+        // Apply sales filters
+        if ($request->filled('min_sales')) {
+            $distributions->where('estimated_result', '>=', $request->min_sales);
+        }
+        if ($request->filled('max_sales')) {
+            $distributions->where('estimated_result', '<=', $request->max_sales);
+        }
         
-        return DataTables::of($distributions)
+        return DataTables::of($distributions->get())
             ->addColumn('date', function($distribution) {
                 return $distribution->created_at->format('d/m/Y');
             })
